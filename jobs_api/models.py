@@ -1,11 +1,7 @@
 from django.db import models
 
-# Create your models here.
-
-
-from django.db import models
-
 class Job(models.Model):
+
     EMPLOYMENT_TYPE_CHOICES = [
         ('full_time', 'Full Time'),
         ('part_time', 'Part Time'),
