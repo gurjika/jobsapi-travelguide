@@ -15,6 +15,11 @@ services:
     build: .
     command: ./wait-for-it.sh postgres:5432 -- ./entrypoint.sh
 
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
     volumes:
       - .:/app
 
