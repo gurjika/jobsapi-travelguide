@@ -53,7 +53,7 @@ jobs:
     - name: Stop and remove services
       if: always()
       run: |
-        docker-compose down
+        docker compose down
 
     env:
       DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
