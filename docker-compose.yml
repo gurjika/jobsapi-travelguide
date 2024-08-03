@@ -13,7 +13,7 @@ services:
 
   django:
     build: .
-    command: ./entrypoint.sh
+    command: ./wait-for-it.sh postgres:5432 -- ./entrypoint.sh
 
     volumes:
       - .:/app
