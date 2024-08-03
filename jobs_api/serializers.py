@@ -17,7 +17,7 @@ class JobSerializer(serializers.ModelSerializer):
     created_by = SimpleUserSerializer(read_only=True)
     class Meta:
         fields = ['title', 'description', 'location', 
-                  'company', 'employment_type', 'posted_date', 
+                  'company', 'employment_type', 
                   'application_deadline', 'salary', 'requirements','responsibilities', 'created_by']
         model = Job
 

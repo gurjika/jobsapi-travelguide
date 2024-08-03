@@ -15,7 +15,6 @@ class Job(models.Model):
     location = models.CharField(max_length=255)
     company = models.CharField(max_length=255)
     employment_type = models.CharField(max_length=20, choices=EMPLOYMENT_TYPE_CHOICES)
-    posted_date = models.DateField()
     application_deadline = models.DateField()
     salary = models.CharField(max_length=255, blank=True, null=True)
     requirements = models.TextField()
