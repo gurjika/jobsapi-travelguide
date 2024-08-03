@@ -26,9 +26,13 @@ class JobSerializer(serializers.ModelSerializer):
     company_id = serializers.IntegerField(write_only=True)
 
     class Meta:
-        fields = ['title', 'description', 'location', 
-                  'company', 'employment_type', 
-                  'application_deadline', 'salary', 'requirements','responsibilities', 'created_by', 'company_id']
+        fields = [
+            'title', 'description', 'location', 
+            'company', 'employment_type', 
+            'application_deadline', 'salary',
+            'requirements','responsibilities', 'created_by', 
+            'company_id'
+            ]
         model = Job
 
 
