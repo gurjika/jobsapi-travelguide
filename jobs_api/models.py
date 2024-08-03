@@ -22,6 +22,7 @@ class Job(models.Model):
     responsibilities = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey('core.user', on_delete=models.CASCADE, related_name='jobs')
 
     def __str__(self):
         return self.title
