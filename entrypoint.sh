@@ -2,4 +2,4 @@
 
 python manage.py migrate
 
-python manage.py runserver 0.0.0.0:8000
+gunicorn --config gunicorn_config.py jobsapp.wsgi:application
