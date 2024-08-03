@@ -13,6 +13,7 @@ drf-yasg = "*"
 psycopg2 = "*"
 pytest-django = "*"
 pillow = "*"
+django-filter = "*"
 
 [dev-packages]
 
