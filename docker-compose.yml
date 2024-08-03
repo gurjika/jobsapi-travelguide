@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:13
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - ./postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=jobsapi
       - POSTGRES_USER=${POSTGRES_USER}
@@ -23,5 +23,3 @@ services:
     depends_on:
       - postgres
 
-volumes:
-  postgres_data:

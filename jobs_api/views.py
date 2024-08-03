@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from jobs_api.models import Job
-from jobs_api.serializers import JobSerializer
+from jobs_api.models import Company, Job
+from jobs_api.serializers import CompanySerializer, JobSerializer
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAdminOrReadOnly
 
@@ -13,5 +13,9 @@ class JobViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
 
 
-    def get_serializer_context(self):
-        return {'user': self.request.user}
+    
+class CompanyViewSet(ModelViewSet):
+    serializer_class = CompanySerializer
+    queryset = Company.objects.all()
+    permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
+    
