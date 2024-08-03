@@ -1,10 +1,13 @@
 from django.db import models
+from django.core.validators import  MinValueValidator
+
 
 class Company(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    number_of_employees = models.PositiveSmallIntegerField()
+    number_of_employees = models.PositiveSmallIntegerField(validators=[MinValueValidator(1)])
     created_by = models.ForeignKey('core.user', on_delete=models.CASCADE, related_name='companies')
+    image = models.ImageField(upload_to='company_pics', null=True)
 
 class Job(models.Model):
 

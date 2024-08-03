@@ -1,11 +1,9 @@
 from rest_framework import serializers
 
-from jobs_api.models import Job
+from jobs_api.models import Company, Job
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
-
-
 
 
 class SimpleUserSerializer(serializers.ModelSerializer):
@@ -15,7 +13,11 @@ class SimpleUserSerializer(serializers.ModelSerializer):
 
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['id', 'title', 'description', 'number_of_employees']
+        fields = ['id', 'title', 'description', 'number_of_employees', 'image']
+        model = Company
+
+    def create(self, validated_data):
+        return Company.objects.create(created_by=self.context['user'], **validated_data)
 
 
 class JobSerializer(serializers.ModelSerializer):
@@ -30,6 +32,5 @@ class JobSerializer(serializers.ModelSerializer):
         model = Job
 
 
-    def create(self, validated_data):
-        return Job.objects.create(created_by=self.context['user'] **validated_data)
+
     

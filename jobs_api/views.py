@@ -9,7 +9,7 @@ from .permissions import IsAdminOrReadOnly
 
 class JobViewSet(ModelViewSet):
     serializer_class = JobSerializer
-    queryset = Job.objects.all()
+    queryset = Job.objects.select_related('company').all()
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
 
 
@@ -19,3 +19,6 @@ class CompanyViewSet(ModelViewSet):
     queryset = Company.objects.all()
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
     
+
+    def get_serializer_context(self):
+        return { 'user': self.request.user }

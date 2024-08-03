@@ -12,6 +12,7 @@ djoser = "*"
 drf-yasg = "*"
 psycopg2 = "*"
 pytest-django = "*"
+pillow = "*"
 
 [dev-packages]
 
