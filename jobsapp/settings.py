@@ -44,11 +44,14 @@ INSTALLED_APPS = [
     'core',
     'jobs_api',
     'rest_framework',
+    'debug_toolbar',
     'drf_yasg',
     'django_filters',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -173,3 +176,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'core.user'
 
 
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

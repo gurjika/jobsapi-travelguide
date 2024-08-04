@@ -9,6 +9,9 @@ class Company(models.Model):
     created_by = models.ForeignKey('core.user', on_delete=models.CASCADE, related_name='companies')
     image = models.ImageField(upload_to='company_pics', null=True)
 
+    def __str__(self) -> str:
+        return self.title
+
 class Job(models.Model):
 
     EMPLOYMENT_TYPE_CHOICES = [

@@ -12,8 +12,9 @@ class SimpleUserSerializer(serializers.ModelSerializer):
         model = User
 
 class CompanySerializer(serializers.ModelSerializer):
+    created_by = SimpleUserSerializer(read_only=True)
     class Meta:
-        fields = ['id', 'title', 'description', 'number_of_employees', 'image']
+        fields = ['id', 'title', 'description', 'number_of_employees', 'image', 'created_by']
         model = Company
 
     def create(self, validated_data):
