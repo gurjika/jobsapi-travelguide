@@ -9,6 +9,15 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class JobViewSet(ModelViewSet):
+    """
+    A viewset for viewing and editing Job instances.
+    
+    - `serializer_class`: The serializer class used for this viewset.
+    - `queryset`: The queryset used to retrieve Job instances. Uses select_related to optimize database access.
+    - `permission_classes`: List of permission classes that determine access to this viewset.
+    - `filter_backends`: List of filter backends used to filter the queryset.
+    - `filterset_fields`: List of fields that can be used for filtering the queryset.
+    """
     serializer_class = JobSerializer
     queryset = Job.objects.select_related('company__created_by').all()
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
@@ -17,6 +26,14 @@ class JobViewSet(ModelViewSet):
 
     
 class CompanyViewSet(ModelViewSet):
+
+    """
+    A viewset for viewing and editing Company instances.
+    
+    - `serializer_class`: The serializer class used for this viewset.
+    - `queryset`: The queryset used to retrieve Company instances. Uses select_related to optimize database access.
+    - `permission_classes`: List of permission classes that determine access to this viewset.
+    """
     serializer_class = CompanySerializer
     queryset = Company.objects.select_related('created_by').all()
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
