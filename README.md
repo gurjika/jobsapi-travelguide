@@ -40,6 +40,7 @@ To explore and test the API endpoints, visit the Swagger documentation at [http:
     ```env
     POSTGRES_PASSWORD=your_db_password
     POSTGRES_USER=user
+    DJANGO_SECRET_KEY=secret_key
     ```
 
 4. Run the application using Docker Compose (Make sure shell scripts use LF line ending, Not CRLF):
