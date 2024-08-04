@@ -10,7 +10,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 class JobViewSet(ModelViewSet):
     serializer_class = JobSerializer
-    queryset = Job.objects.select_related('company').all()
+    queryset = Job.objects.select_related('company__created_by').all()
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['title']

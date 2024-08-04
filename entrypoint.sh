@@ -2,4 +2,6 @@
 
 python manage.py migrate
 
-gunicorn --config gunicorn_config.py jobsapp.wsgi:application
+gunicorn --reload --config gunicorn_config.py jobsapp.wsgi:application
+
+
