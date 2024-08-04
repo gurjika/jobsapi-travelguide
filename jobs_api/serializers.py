@@ -36,6 +36,13 @@ class JobSerializer(serializers.ModelSerializer):
             ]
         model = Job
 
+    def create(self, validated_data):
+        if not Company.objects.filter(id=validated_data['company_id']).exists():
+            raise serializers.ValidationError("A company with this ID  does not exist.")
+            
+        return Job.objects.create(**validated_data)
+        
+
 
 
     

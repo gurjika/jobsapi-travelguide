@@ -42,7 +42,7 @@ To explore and test the API endpoints, visit the Swagger documentation at [http:
     POSTGRES_USER=user
     ```
 
-4. Run the application using Docker Compose:
+4. Run the application using Docker Compose (Make sure shell scripts use LF line ending, Not CRLF):
     ```sh
     docker-compose up -d
     ```
